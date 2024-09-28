@@ -55,7 +55,7 @@ This project is a C++ implementation of a banking system designed with an object
 # How to Run
 
 1.**Clone the repository**:
-`git clone <repository_url>`<br>
+`git clone https://github.com/GAKUEN05/Banking_Project.git`<br>
 
 2.**Compile the project**:
 `g++ -o system *.cpp`<br>
