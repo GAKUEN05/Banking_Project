@@ -1,15 +1,31 @@
-CC=gcc
-CFLAGS=-I.
+# Compiler
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
 
-# Targets
-main: system.o lib.o
-	$(CC) -o system system.o lib.o
+# List of source files
+SOURCES = system.cpp customer.cpp account.cpp transaction.cpp
 
-main.o: main.c
-	$(CC) -c system.cpp $(CFLAGS)
+# List of object files (replace .cpp with .o)
+OBJECTS = $(SOURCES:.cpp=.o)
 
-lib.o: lib.c
-	$(CC) -c lib.c $(CFLAGS)
+# Target executable
+TARGET = bank_system
 
+# Default target: Build the program
+all: $(TARGET)
+
+# Rule to build the target executable
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
+
+# Rule to build object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean up generated files
 clean:
-	rm -f *.o system
+	rm -f $(OBJECTS) $(TARGET)
+
+# Run the program
+run: $(TARGET)
+	./$(TARGET)
