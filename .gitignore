@@ -7,3 +7,5 @@ client_file
 customer
 
 system
+
+.env
